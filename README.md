@@ -1,3 +1,38 @@
+$(document).ready(function(){
+
+ $('.box').on('click', function(){
+   $(this).addClass(color);
+ });
+
+ $(document).on('dblclick','.box', function(){
+   $(this).removeClass(colors);
+ });
+
+ $('#reset').on('click', function(){
+   $('.box').removeClass(colors);
+ });
+
+ var color = 'white';
+ var colors = 'white green red blue yellow';
+
+ $('#red').on('click',function(){
+   color = 'red';
+ });
+
+ $('#blue').on('click',function(){
+   color = 'blue';
+ });
+ $('#green').on('click', function(){
+   color = 'green';
+ });
+ $('#yellow').on('click',function(){
+   color = 'yellow';
+ });
+ $('#white').on('click',function(){
+   color = 'white';
+ });
+
+});
 # Understanding jQuery - Paint
 
 This project will help us better understand basic DOM manipulation by creating a paint program! Much like Microsoft Paint.
@@ -16,7 +51,7 @@ The primary thing our 'pixes' do is change color. These little guys will be the 
   })
 ```
 
-All of our code will live within this piece of code. 
+All of our code will live within this piece of code.
 
 - Make it so that when we click on a pixel, it changes to white
   - Notice in the our index.html file each div has the class of 'box'
@@ -34,7 +69,7 @@ Our style.css file has a class named white. All it does is change the background
 In theory this would change the black box we click on to a white box, but what happens when we try it out?
 It looks as though when we click on a box, all of our boxes are turning white!
 
-This is because they all share the same class, by the name of box. We are currently telling jQuery that anything with the class 'box' should also have the class 'white'. This is a common problem in jQuery. Now we could give each div in the list of all 5400 divs their own unique ID, but I've got a better idea. 
+This is because they all share the same class, by the name of box. We are currently telling jQuery that anything with the class 'box' should also have the class 'white'. This is a common problem in jQuery. Now we could give each div in the list of all 5400 divs their own unique ID, but I've got a better idea.
 
 - Use the 'this' keyword
 
@@ -44,7 +79,7 @@ This is because they all share the same class, by the name of box. We are curren
   })
 ```
 
-The keyword 'this' is very common in JavaScript and it's also very confusing. In this case with our jQuery code it's referring to the specific box we clicked on. Often times you'll find yourself in positions where you need to change one thing, in an array of many. If you ever find yourself changing all of them, experiement with 'this' a bit. 
+The keyword 'this' is very common in JavaScript and it's also very confusing. In this case with our jQuery code it's referring to the specific box we clicked on. Often times you'll find yourself in positions where you need to change one thing, in an array of many. If you ever find yourself changing all of them, experiement with 'this' a bit.
 
 ## Step 2 - Edits
 
@@ -127,7 +162,7 @@ Let's make our color buttons work!
 
 ```
 
-One last thing is a little messed up. Our reset and double click functions aren't working now. Because we placed the 'color' variable in the place of the remove class action, it will only respect the currently selected color. 
+One last thing is a little messed up. Our reset and double click functions aren't working now. Because we placed the 'color' variable in the place of the remove class action, it will only respect the currently selected color.
 
 In jQuery's removeClass function we have the ability to remove multiple classes by just separating each class we want to remove by a space, like so:
 
